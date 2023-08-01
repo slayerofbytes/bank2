@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bank of Slayer</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/mobile-style.css">
+</head>
+<body>
+    <h1>Bank of Slayer</h1>
+    <div class="container">
+        <div class="left-section">
+            <div class="video-container">
+                <video width="400" height="300" autoplay loop muted>
+                    <source src="./video/cashflow.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="left-paragraph">
+                <p>Welcome to the Bank of Slayer, where your financial dreams come true! Our mission is to provide top-notch banking services tailored to your needs. Whether you're saving for the future, investing for growth, or seeking convenient and secure banking solutions, we've got you covered. Our team of dedicated professionals is committed to delivering exceptional customer service and ensuring your satisfaction. Join us on your journey towards financial success and let Bank of Slayer be your trusted financial partner.</p>
+            </div>
+        </div>
+        <div class="middle-section">
+            <div class="image-container">
+                <img class="bank-image" src="./images/bank/bank.jpg">
+            </div>
+            <form onsubmit="return checkLogin()" method="post">
+                <label for="email">Email:</label>
+                <input id="email" type="email" name="email" placeholder="test@test.com">
+                <label for="password">Password:</label>
+                <input id="password" type="password" name="password" placeholder="Password">
+                <input type="submit" value="Login">
+                <label> <input type="checkbox" name="remember" checked="checked" value="yes"> Stay signed in</label>
+            </form>
+        </div>
+        <div class="right-section">
+            <div class="second-video-container">
+                <video width="400" height="300" autoplay loop muted>
+                    <source src="./video/cashflow2.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="right-paragraph">
+                <p>We have served more than 3 dog shit clients: auxy, clue, and dogshituk. They have trusted us to handle their financial needs, and we have delivered with excellence. Now, we invite you to join our Amazing and Accomplished Group (AAG) team. Experience the difference in banking with Bank of Slayer. Your success is our priority.</p>
+            </div>
+        </div>
+    </div>
+  </div>
+  <footer class="footer">
+      <p>&copy; 2023 Bank of Slayer. All rights reserved.</p>
+  </footer>
+  <div class="footer-content">
+      <p>Bank of Slayer has been a trusted name in the financial industry for over 20 years, providing reliable banking services and innovative solutions to our valued customers. With a strong commitment to excellence and customer satisfaction, we continue to be a leading force in the banking domain.</p>
+  </div>
+    <script>
+        function checkLogin() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+        
+            if (email === "auxy@hotmail.com" && password === "auxyah") {
+                window.location.href = "dashboard.html"; 
+                return false; 
+            } else if (email === "dogshituk@hotmail.com" && password === "tea") {
+                window.location.href = "dashboard2.html";
+                return false;
+            } else if (email === "cluen@hotmail.com" && password === "dogshit") {
+                window.location.href = "dashboard3.html"; 
+                return false; 
+            } else {
+                alert("Invalid email or password. Please try again.");
+                return false; 
+            }
+        }
+    </script>
+</body>
+</html>

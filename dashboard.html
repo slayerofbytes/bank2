@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - auxy@hotmail.com</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+
+    h1 {
+      color: #0066cc;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-size: 16px;
+    }
+
+    input[type="number"] {
+      width: 150px;
+      font-size: 16px;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #0066cc;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0052a3;
+    }
+
+    #picture {
+      animation-name: rotate360;
+      animation-duration: 2s;
+      animation-timing-function: linear;
+      display: none;
+      width: 400px;
+      height: 400px;
+      margin: 20px auto;
+    }
+
+    @keyframes rotate360 {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    footer {
+      margin-top: 50px;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+
+    footer p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .contact-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .contact-button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 16px;
+      background-color: #009688;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .contact-button:hover {
+      background-color: #00796b;
+    }
+
+    .phone-number {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #444;
+    }
+
+    .notification {
+      display: none;
+      background-color: #4CAF50;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      width: 250px;
+      border-radius: 5px;
+    }
+      button.logout-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome, Auxy</h1>
+  <p>Your current balance: $<span id="balance">500</span></p>
+  <label for="withdrawAmount">Withdraw Amount:</label>
+  <input type="number" id="withdrawAmount" min="0" max="500">
+  <button onclick="withdrawMoney('customer_1')">Withdraw</button>
+  <br>
+  <label for="depositAmount">Deposit Amount:</label>
+  <input type="number" id="depositAmount" min="0" max="50">
+  <button onclick="depositMoney('customer_1')">Deposit</button>
+  <img id="picture" src="./images/bank/fuckyou.jpg">
+
+  <button class="logout-button" onclick="logout()">Logout</button>
+
+  
+  <div class="notification" id="successNotification">
+    Transaction successful!
+  </div>
+
+  <footer>
+    <p>Bank of Slayer has been a trusted name in the financial industry for over 20 years, providing reliable banking services and innovative solutions to our valued customers. With a strong commitment to excellence and customer satisfaction, we continue to be a leading force in the banking domain.</p>
+    <div class="contact-buttons">
+      <button class="contact-button">Contact Us</button>
+      <button class="contact-button">Report an Issue</button>
+    </div>
+    <p class="phone-number">For assistance, call: +961 71261287 BANK-SLYR</p>
+  </footer>
+
+  <script>
+    var balance = 500; 
+    document.getElementById("balance").textContent = balance;
+
+    function withdrawMoney(customerId) {
+      var withdrawAmount = parseInt(document.getElementById("withdrawAmount").value);
+
+      if (withdrawAmount <= balance) {
+        balance -= withdrawAmount;
+        document.getElementById("balance").textContent = balance;
+        document.getElementById("withdrawAmount").value = ""; 
+        showNotification();
+        hidePicture();
+      } else {
+        alert("Insufficient funds. You cannot withdraw more than your current balance.");
+        displayPicture();
+      }
+    }
+
+    function depositMoney(customerId) {
+      var depositAmount = parseInt(document.getElementById("depositAmount").value);
+
+      if (depositAmount > 0 && depositAmount <= 50) {
+        balance += depositAmount;
+        document.getElementById("balance").textContent = balance;
+        document.getElementById("depositAmount").value = ""; 
+        hidePicture();
+      } else {
+        alert("Invalid deposit amount. Please enter a value between 1 and 50.");
+        hidePicture();
+      }
+    }
+
+    function logout() {
+      window.location.href = "index.html"; 
+    }
+
+    function showNotification() {
+      var notification = document.getElementById("successNotification");
+      notification.style.display = "block";
+
+      
+      setTimeout(function() {
+        notification.style.display = "none";
+      }, 3000);
+    }
+
+    function displayPicture() {
+      var picture = document.getElementById("picture");
+      picture.style.display = "block";
+      picture.style.animationPlayState = "running"; n
+    }
+
+    function hidePicture() {
+      var picture = document.getElementById("picture");
+      picture.style.display = "none";
+      picture.style.animationPlayState = "paused";
+    }
+  </script>
+</body>
+</html>

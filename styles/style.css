@@ -1,0 +1,216 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #161616;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.left-section, .middle-section, .right-section {
+  flex: 1;
+  text-align: center;
+  margin: 10px; 
+}
+
+.left-section {
+  order: 1;
+}
+
+.middle-section {
+  order: 2;
+}
+
+.right-section {
+  order: 3;
+}
+
+h1 {
+  color: #fff;
+  text-align: center;
+  font-size: 48px;
+  letter-spacing: 5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+
+.bank-image {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+form {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #444;
+}
+
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: #555;
+}
+
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 5px rgba(26, 115, 232, 0.3);
+}
+
+form input[type="submit"] {
+  width: 100%;
+  background-color: #1a73e8;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+form input[type="submit"]:hover {
+  background-color: #0e6ae8;
+}
+
+.checkbox-text {
+  font-size: 85%;
+  color: #777;
+  margin-left: 5px;
+}
+
+.left-paragraph p {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.left-paragraph, .right-paragraph {
+  text-align: left;
+}
+
+.video-container, .second-video-container {
+  width: 400px;
+  height: 300px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.video-container video, .second-video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center;
+}
+
+.video-container {
+  transform: rotate(5deg);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.second-video-container {
+  transform: rotate(-5deg);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.right-paragraph p {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    flex-direction: column;
+  }
+  .left-section, .middle-section, .right-section {
+    order: 0;
+    margin: 10px; 
+  }
+}
+.footer {
+  text-align: center;
+  background-color: #333;
+  padding: 10px;
+  color: #fff;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer-content {
+  background-color: #f9f9f9;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content p {
+  margin: 0;
+  color: #333;
+  font-size: 18px;
+  line-height: 1.6;
+}
+@media screen and (max-width: 767px) {
+  body {
+    padding: 10px; 
+  }
+
+  h1 {
+    font-size: 36px; 
+  }
+
+  .bank-image {
+    max-height: 300px; 
+  }
+
+  form {
+    max-width: 100%; 
+    padding: 15px; 
+  }
+
+  form input[type="email"],
+  form input[type="password"] {
+    font-size: 14px; 
+  }
+
+  .left-paragraph p,
+  .right-paragraph p {
+    font-size: 14px; 
+  }
+
+  .video-container,
+  .second-video-container {
+    width: 100%; 
+    height: 200px; 
+  }
+}

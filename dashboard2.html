@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - dogshituk@hotmail.com</title>
+  <style>
+     body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    h1 {
+      color: #0066cc;
+    }
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    label {
+      font-size: 16px;
+    }
+    input[type="number"] {
+      width: 150px;
+      font-size: 16px;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #0066cc;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0052a3;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    #picture {
+      display: none;
+      width: 400px;
+      height: 400px;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome, Dog Shit UK</h1>
+  <p>Your current balance: $<span id="balance">300</span></p>
+  <label for="withdrawAmount">Withdraw Amount:</label>
+  <input type="number" id="withdrawAmount" min="0" max="300">
+  <button onclick="withdrawMoney('customer_2')">Withdraw</button>
+  <br>
+  <label for="depositAmount">Deposit Amount:</label>
+  <input type="number" id="depositAmount" min="0" max="200">
+  <button onclick="depositMoney('customer_2')">Deposit</button>
+  <img id="picture" src="./images/bank/fuckyou.jpg">
+  <script>
+    var balance = 300;
+    document.getElementById("balance").textContent = balance;
+    function withdrawMoney(customerId) {
+      var withdrawAmount = parseInt(document.getElementById("withdrawAmount").value);
+      if (withdrawAmount <= balance) {
+        balance -= withdrawAmount;
+        document.getElementById("balance").textContent = balance;
+        hidePicture();
+      } else {
+        alert("Insufficient funds. You cannot withdraw more than your current balance.");
+        displayPicture();
+      }
+    }
+
+    function depositMoney(customerId) {
+      var depositAmount = parseInt(document.getElementById("depositAmount").value);
+
+      if (depositAmount > 0 && depositAmount <= 200) {
+        balance += depositAmount;
+        document.getElementById("balance").textContent = balance;
+        hidePicture();
+      } else {
+        alert("Invalid deposit amount. Please enter a value between 1 and 200.");
+        hidePicture();
+      }
+    }
+
+    function displayPicture() {
+      document.getElementById("picture").style.display = "block";
+    }
+
+    function hidePicture() {
+      document.getElementById("picture").style.display = "none";
+    }
+  </script>
+</body>
+</html>
